@@ -21,4 +21,13 @@ do_compile() {
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 x4 ${D}${bindir}
+
+	install -d ${D}/usr/src/${PN}
+	install -m 0755 ${WORKDIR}/x4_evl_square_wave.c ${D}/usr/src/${PN}
+	install -m 0755 ${WORKDIR}/Makefile ${D}/usr/src/${PN}
 }
+
+FILES:${PN} = "\
+	    ${bindir} \
+	    /usr/src/${PN} \
+	    "
