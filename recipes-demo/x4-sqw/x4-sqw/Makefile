@@ -8,4 +8,4 @@ all:
 	$(CC) $(SRC) $(LIBS) $(CFLAGS) -o $(PROJ)
 
 clean:
-	rm -rf $(PROJ)
+	rm $(PROJ)
