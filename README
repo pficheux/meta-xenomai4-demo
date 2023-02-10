@@ -5,37 +5,52 @@ Please see the corresponding sections below for details.
 Dependencies
 ============
 
-  URI: <first dependency>
-  branch: <branch name>
+This meta layer is supposed to be used with Raspberry PI4 (meta-raspberrypi) layer.
 
-  URI: <second dependency>
-  branch: <branch name>
+For more information regarding the layer setup, please consult the KAS file from:
+https://source.denx.de/lukma/kas
 
-  .
-  .
-  .
+Instructions on how to use KAS can be found here:
+https://kas.readthedocs.io/en/latest/userguide.html
+
+For impatient:
+../kas/run-kas shell rpi4-xenomai4-demo.yml
+
 
 Patches
 =======
 
-Please submit any patches against the meta-xenomai-demo layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+Please submit any patches against the meta-xenomai-demo layer directly to the maintainer:
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+Maintainer: Lukasz Majewski <lukma@denx.de>
 
 Table of Contents
 =================
 
   I. Adding the meta-xenomai-demo layer to your build
- II. Misc
+ II. Usage
 
 
 I. Adding the meta-xenomai-demo layer to your build
-=================================================
+===================================================
 
 Run 'bitbake-layers add-layer meta-xenomai-demo'
 
-II. Misc
-========
+II. Usage
+=========
 
---- replace with specific information about the meta-xenomai-demo layer ---
+This meta layer turns the RPI4 model B into demo system with kernel from meta-raspberrypi
+patched with Xenomai4 (i.e. it provides EVL core).
+
+One needs to build core-image-stresstest with: bitbake core-image-stresstest
+(The `bitbake xenomai4` is built against patched kernel to provide libegl).
+
+Two test programs to generate square wave are provided - one runs in the user space
+(sqw) and the another uses EVL API (x4). The wave can be observed with oscilloscope
+on gpiochip0's pin 27.
+
+It is recommended to first run `latmus -t` to callibrate the system and afterwards
+use the `stress_test.sh` (from /usr/src/) script to generate some substancial workload.
+
+The BSP also allows on-board compilation of mentioned above test programs (placed in
+/usr/src directory) from sources as well as developing new one.
