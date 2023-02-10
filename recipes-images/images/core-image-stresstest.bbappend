@@ -3,4 +3,6 @@ IMAGE_INSTALL:append = " \
 		     libgpiod-dev \
 		     libgpiod-tools \
 		     valgrind \
+		     user-sqw \
+		     x4-sqw \
 		     "
