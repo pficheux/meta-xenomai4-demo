@@ -31,8 +31,8 @@ int main(int argc, char **argv)
 	};
 	struct itimerspec spec =
         {
-            { 0, 500000 },
-            { 0, 500000 }
+            { 0, 1000000 },
+            { 0, 1000000 }
         };
 	char dummybuf[8];
 	int ret, tfd;
