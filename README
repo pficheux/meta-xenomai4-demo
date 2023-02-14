@@ -54,3 +54,7 @@ use the `stress_test.sh` (from /usr/src/) script to generate some substancial wo
 
 The BSP also allows on-board compilation of mentioned above test programs (placed in
 /usr/src directory) from sources as well as developing new one.
+
+To setup the GPOS square wave generation program (which uses the timerfd, non-EVL
+API) to run on a separate CPU3 core:
+{ sqw & }; SQW_PID=$!; echo "SQW program PID: ${SQW_PID} config:"; chrt -r --pid 99 ${SQW_PID}; chrt -p ${SQW_PID}; taskset -cp 3 ${SQW_PID}
