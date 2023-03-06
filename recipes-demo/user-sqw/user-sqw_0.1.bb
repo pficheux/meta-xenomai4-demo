@@ -8,6 +8,7 @@ DEPENDS="libgpiod"
 SRC_URI = "\
 	file://square_wave.c \
 	file://Makefile \
+	file://sqw-start.sh \
 	"
 
 S = "${WORKDIR}"
@@ -21,6 +22,7 @@ do_compile() {
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 sqw ${D}${bindir}
+	install -m 0755 sqw-start.sh ${D}${bindir}
 
 	install -d ${D}/usr/src/${PN}
 	install -m 0755 ${WORKDIR}/square_wave.c ${D}/usr/src/${PN}
