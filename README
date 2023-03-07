@@ -46,8 +46,8 @@ One needs to build core-image-stresstest with: bitbake core-image-stresstest
 (The `bitbake xenomai4` is built against patched kernel to provide libegl).
 
 Two test programs to generate square wave are provided - one runs in the user space
-(sqw) and the another uses EVL API (x4). The wave can be observed with oscilloscope
-on gpiochip0's pin 27.
+(sqw) and the another uses EVL API (x4). Generated waves can be observed with oscilloscope
+on gpiochip0's pin 27 (x4) and pin 13 (sqw).
 
 It is recommended to first run `latmus -t` to callibrate the system and afterwards
 use the `stress_test.sh` (from /usr/src/) script to generate some substancial workload.

@@ -22,7 +22,7 @@
 int main(int argc, char **argv)
 {
 	char *chipname = "gpiochip0";
-	unsigned int line_num = 27;
+	unsigned int line_num = 13;
 	unsigned int val;
 	struct gpiod_chip *chip;
 	struct gpiod_line *line;
